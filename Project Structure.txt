@@ -10,28 +10,27 @@ fungal_skin_detection_website/
 │   └── uploads/          # Directory for storing uploaded images
 ├── templates/            # HTML templates for the frontend
 │   ├── index.html
-│   └── result.html
 ├── utils/                # Utility functions for image processing, etc.
 │   └── preprocess.py
 ├── data/
 │   └── dataset/
-│   ├── splits/
-│   │   ├── train/
-│   │   │   ├── healthy/
-│   │   │   ├── infected/
-│   │   │   │   └── [disease name 1]/
-│   │   │   │       └── ...
-│   │   ├── test/
-│   │   │   ├── healthy/
-│   │   │   ├── infected/
-│   │   │   │   └── [disease name 1]/
-│   │   │   │       └── ...
-│   │   └── validation/
-│   │       ├── healthy/
-│   │       ├── infected/
-│   │       │   └── [disease name 1]/
-│   │       │       └── ...
-│   └── labels.csv (Optional)
+│       ├── splits/
+│       │   ├── train/
+│       │   │   ├── healthy/
+│       │   │   ├── infected/
+│       │   │   │   └── [disease name 1]/
+│       │   │   │       └── ...
+│       │   ├── test/
+│       │   │   ├── healthy/
+│       │   │   ├── infected/
+│       │   │   │   └── [disease name 1]/
+│       │   │   │       └── ...
+│       │   └── validation/
+│       │       ├── healthy/
+│       │       ├── infected/
+│       │       │   └── [disease name 1]/
+│       │       │       └── ...
+│       └── labels.csv (Optional)
 ├── requirements.txt      # Python dependencies
 ├── README.md             # Project documentation
 └── LICENSE               # License information
