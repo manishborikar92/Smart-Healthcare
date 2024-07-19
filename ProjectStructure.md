@@ -65,3 +65,5 @@ fungal-infection-detection/
     Use the Vercel CLI to deploy your application:
 
     vercel
+
+    vercel --prod
