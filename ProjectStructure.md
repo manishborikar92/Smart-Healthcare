@@ -57,6 +57,10 @@ smart-healthcare/
 ### Run the training script
     python train_model.py
 
+## Test Python Script:
+
+    python3 utils/preprocess.py path/to/test/image.jpg
+
 ## Start the Node.js server:
 
     node app.js
