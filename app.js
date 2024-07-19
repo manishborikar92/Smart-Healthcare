@@ -1,34 +1,33 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const multer = require('multer');
 const path = require('path');
+const bodyParser = require('body-parser');
+const indexRouter = require('./routes/index');
 
 const app = express();
 
-// Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/uploads');
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({ storage: storage });
-
-// Set view engine to EJS
-app.set('view engine', 'ejs');
-app.use(express.static('public'));
-
-// Body parser middleware
+// Middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Set view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Routes
-const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
+
+// Error handling
+app.use((req, res, next) => {
+    res.status(404).send('Page Not Found');
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

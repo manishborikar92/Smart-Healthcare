@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Prediction Result</title>
-  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Prediction Result</h1>
-  <img src="/<%= imagePath %>" alt="Uploaded Image" width="300">
-  <p><strong>Disease Name:</strong> <%= predictionResult.diseaseName %></p>
-  <p><strong>Accuracy:</strong> <%= predictionResult.accuracy %></p>
-  <a href="/">Upload Another Image</a>
+    <h1>Prediction Result</h1>
+    <p><strong>Disease Name:</strong> <%= result.diseaseName %></p>
+    <p><strong>Accuracy:</strong> <%= result.accuracy %></p>
+    <a href="/">Go Back</a>
 </body>
 </html>

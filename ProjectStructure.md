@@ -1,41 +1,43 @@
 ## Project Structure
-fungal-infection-detection/
-├── app.js
-├── package.json
+smart-healthcare/
+├── api/
+│   └── predict.js
+├── data/
+│   ├── dataset/
+│   │   ├── splits/
+│   │   │   ├── test/
+│   │   │   │   ├── healthy/
+│   │   │   │   ├── infected/
+│   │   │   │   │   └── [disease folder 1]/
+│   │   │   │   └── ...
+│   │   │   ├── train/
+│   │   │   │   ├── healthy/
+│   │   │   │   ├── infected/
+│   │   │   │   │   └── [disease folder 1]/
+│   │   │   │   └── ...
+│   │   │   └── validation/
+│   │   │       ├── healthy/
+│   │   │       ├── infected/
+│   │   │       │   └── [disease folder 1]/
+│   │   │       └── ...
+│   └── labels.csv (Optional)
+├── model/
+│   └── fungal_skin_model.h5
 ├── public/
 │   ├── css/
 │   │   └── styles.css
 │   └── uploads/
 ├── routes/
 │   └── index.js
+├── utils/
+│   ├── preprocess.py
+│   └── train_model.py
 ├── views/
 │   ├── index.ejs
 │   └── result.ejs
-├── model/
-│   └── fungal_skin_model.h5
-└── data/
-    ├── dataset/
-    │   ├── splits/
-    │   │   ├── train/
-    │   │   │   ├── healthy/
-    │   │   │   ├── infected/
-    │   │   │   │   └── [disease name 1]/
-    │   │   │   └── ...
-    │   │   ├── test/
-    │   │   │   ├── healthy/
-    │   │   │   ├── infected/
-    │   │   │   │   └── [disease name 1]/
-    │   │   │   └── ...
-    │   │   └── validation/
-    │   │       ├── healthy/
-    │   │       ├── infected/
-    │   │       │   └── [disease name 1]/
-    │   │       └── ...
-    │   └── labels.csv (Optional)
-└── utils/
-    └── preprocess.py
-
-
+├── app.js
+├── package.json
+└── vercel.json
 
 ## Run the Training Script
     Execute the train_model.py script to start training your model:
