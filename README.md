@@ -11,20 +11,17 @@ smart-healthcare/
 ├── data/
 │   ├── dataset/
 │   │   ├── splits/
-│   │   │   ├── train/
-│   │   │   │   ├── healthy/
-│   │   │   │   ├── infected/
-│   │   │   │   │   └── [disease name 1]/
-│   │   │   │   └── ...
 │   │   │   ├── test/
-│   │   │   │   ├── healthy/
-│   │   │   │   ├── infected/
-│   │   │   │   │   └── [disease name 1]/
+│   │   │   │   ├── [disease folder 1]/
+│   │   │   │   ├── [disease folder 2]/
+│   │   │   │   └── ...
+│   │   │   ├── train/
+│   │   │   │   ├── [disease folder 1]/
+│   │   │   │   ├── [disease folder 2]/
 │   │   │   │   └── ...
 │   │   │   └── validation/
-│   │   │       ├── healthy/
-│   │   │       ├── infected/
-│   │   │       │   └── [disease name 1]/
+│   │   │       ├── [disease folder 1]/
+│   │   │       ├── [disease folder 2]/
 │   │   │       └── ...
 │   └── labels.csv (Optional)
 ├── model/
