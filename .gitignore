@@ -2,5 +2,6 @@ __pycache__
 data/dataset/splits
 model/fungal_skin_model_resnet50v2.tflite
 node_modules
+public/uploads
 venv
 ProjectStructure.md
