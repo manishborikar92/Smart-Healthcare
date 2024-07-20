@@ -1,6 +1,6 @@
 __pycache__
 .vercel
-data
+data/dataset/splits
 model/fungal_skin_model_resnet50v2.keras
 model/fungal_skin_model_resnet50v2.tflite
 node_modules
