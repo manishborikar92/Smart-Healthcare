@@ -51,33 +51,38 @@ smart-healthcare/
 
 1. Clone the repository:
 
+   ```
    git clone https://github.com/VirtualVanguards/Smart-Healthcare.git
    cd smart-healthcare
-
+   ```
 
 2. Install dependencies:
 
+   ```
    npm install
-
+   ```
 
 3. Train the model:
 
    Ensure you have the dataset in the `data/dataset/splits/` directory.
 
+   ```
    python utils/train_model.py
-
+   ```
 
 4. Run the server:
 
+   ```
    node app.js
-
+   ```
 
 5. Deploy on Vercel:
 
    Ensure you have the Vercel CLI installed.
 
+   ```
    vercel --prod
-
+   ```
 
 ## Usage
 
@@ -88,7 +93,6 @@ smart-healthcare/
 2. View Prediction:
 
    After submission, the result page will display the predicted fungal skin disease and the accuracy of the prediction.
-
 
 ## Files Description
 
@@ -103,7 +107,7 @@ smart-healthcare/
 
 ## Model Training
 
-The model is trained using a dataset of fungal skin infection images categorized into different classes. The training script `train_model.py` uses ResNet50V2 as the base model with additional layers for better accuracy.
+The model is trained using a dataset of fungal skin infection images categorized into different classes. The training script `train_model.py` uses VGG16 as the base model with additional layers for better accuracy.
 
 ## Contributing
 
@@ -112,7 +116,3 @@ Feel free to fork the repository and submit pull requests. For major changes, pl
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-Replace `"https://github.com/yourusername/smart-healthcare.git"` with the actual URL of your repository. Make sure all paths and instructions match your project's setup. If you have any additional instructions or features, be sure to include them in the README.
