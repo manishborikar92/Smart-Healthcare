@@ -1,5 +1,6 @@
 __pycache__
-data/dataset/splits
+data/dataset/splits/test
+data/dataset/splits/validation
 model/fungal_skin_model_resnet50v2.tflite
 node_modules
 public/uploads
