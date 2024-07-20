@@ -110,7 +110,7 @@ print(f'Test Accuracy: {test_accuracy}')
 model.save('model/fungal_skin_model_resnet50v2.keras', include_optimizer=False)
 
 # Convert model to TFLite for size reduction
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
-tflite_model = converter.convert()
-with open('model/fungal_skin_model_resnet50v2.tflite', 'wb') as f:
-    f.write(tflite_model)
+# converter = tf.lite.TFLiteConverter.from_keras_model(model)
+# tflite_model = converter.convert()
+# with open('model/fungal_skin_model_resnet50v2.tflite', 'wb') as f:
+#     f.write(tflite_model)
