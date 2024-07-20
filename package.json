@@ -1,0 +1,29 @@
+{
+  "name": "smart-healthcare",
+  "version": "1.0.0",
+  "description": "Fungal Skin Infection Detection using CNN",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "predict": "node api/predict.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "python-shell": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=14.x",
+    "python": ">=3.6"
+  },
+  "python": {
+    "requirements": "requirements.txt"
+  }
+}

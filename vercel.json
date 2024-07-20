@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "app.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/predict.js" },
+    { "src": "/(.*)", "dest": "/app.js" }
+  ],
+  "env": {
+    "PORT": "3000"
+  }
+}

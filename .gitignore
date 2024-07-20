@@ -1,0 +1,11 @@
+node_modules
+venv
+.vercel
+data
+uploads
+train_model.py
+ProjectStructure.md
+densenet.py
+efficientnetv2b0.py
+model
+__pycache__
