@@ -20,10 +20,6 @@
     "python-shell": "^5.0.0"
   },
   "engines": {
-    "node": ">=14.x",
-    "python": ">=3.6"
-  },
-  "python": {
-    "requirements": "requirements.txt"
+    "node": ">=14.x"
   }
 }
