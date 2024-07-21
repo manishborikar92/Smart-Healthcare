@@ -104,7 +104,7 @@ smart-healthcare/
 
 ## Model Training
 
-The model is trained using a dataset of fungal skin infection images categorized into different classes. The training script `train_model.py` uses VGG16 as the base model with additional layers for better accuracy.
+The model is trained using a dataset of fungal skin infection images categorized into different classes. The training script `train_model.py` uses ResNet50V2 as the base model with additional layers for better accuracy.
 
 ## Contributing
 
