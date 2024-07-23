@@ -1,6 +1,6 @@
-# Fungal Skin Infection Detection
+# skin cancer Infection Detection
 
-This project is a web application that uses a Convolutional Neural Network (CNN) to detect fungal skin infections from uploaded images. The backend is built with Express.js, and the frontend uses EJS templating with HTML and CSS. The application allows users to upload an image and receive a prediction of the fungal skin disease along with the accuracy of the prediction.
+This project is a web application that uses a Convolutional Neural Network (CNN) to detect skin cancer diseases from uploaded images. The backend is built with Express.js, and the frontend uses EJS templating with HTML and CSS. The application allows users to upload an image and receive a prediction of the skin cancer disease along with the accuracy of the prediction.
 
 ## Project Structure
 
@@ -89,7 +89,7 @@ smart-healthcare/
 
 2. View Prediction:
 
-   After submission, the result page will display the predicted fungal skin disease and the accuracy of the prediction.
+   After submission, the result page will display the predicted skin cancer disease and the accuracy of the prediction.
 
 ## Files Description
 
@@ -104,7 +104,7 @@ smart-healthcare/
 
 ## Model Training
 
-The model is trained using a dataset of fungal skin infection images categorized into different classes. The training script `train_model.py` uses ResNet50V2 as the base model with additional layers for better accuracy.
+The model is trained using a dataset of skin cancer disease images categorized into different classes. The training script `train_model.py` uses ResNet50V2 as the base model with additional layers for better accuracy.
 
 ## Contributing
 

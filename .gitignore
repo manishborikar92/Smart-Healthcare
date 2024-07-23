@@ -7,3 +7,6 @@ public/uploads
 venv
 ProjectStructure.md
 Procfile
+
+data
+model
