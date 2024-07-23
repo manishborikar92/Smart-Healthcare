@@ -7,9 +7,27 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Prediction Result</h1>
-  <p><strong>Disease Name:</strong> <%= result.disease %></p>
-  <p><strong>Accuracy:</strong> <%= result.accuracy %>%</p>
-  <a href="/">Upload another image</a>
+  <header>
+    <nav class="navbar">
+      <h1>Fungal Skin Infection Detection</h1>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main class="main-content">
+      <section class="result-section">
+        <h2>Prediction Result</h2>
+        <p><strong>Disease Name:</strong> <%= result.disease %></p>
+        <p><strong>Accuracy:</strong> <%= result.accuracy %>%</p>
+        <a href="/" class="btn">Upload Another Image</a>
+      </section>
+    </main>
+  </div>
+  <script>
+    function toggleMenu() {
+      var modal = document.getElementById('menuModal');
+      modal.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>

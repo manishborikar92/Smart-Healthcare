@@ -7,10 +7,49 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Upload an Image for Fungal Skin Infection Detection</h1>
-  <form action="/api/predict" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required>
-    <button type="submit">Upload and Predict</button>
-  </form>
+  <header>
+    <nav class="navbar">
+      <h1>Fungal Skin Infection Detection</h1>
+    </nav>
+  </header>
+  
+  <div class="container"> 
+    <main class="main-content">
+      <section class="upload-section">
+        <h2>Upload an Image for Detection</h2>
+        <form id="uploadForm" action="/api/predict" method="post" enctype="multipart/form-data">
+          <input type="file" name="image" accept="image/*" required>
+          <button type="submit">CHECK YOUR SKIN NOW</button>
+        </form>
+      </section>
+      
+      <section class="why-use">
+        <h2>Why Use Our Website?</h2>
+        <ul>
+          <li>Smart: Utilizes advanced AI technology for accurate detection.</li>
+          <li>Accessible: Easy to use for everyone, anywhere.</li>
+          <li>Affordable: Free to use for all users.</li>
+          <li>Fast: Get results in seconds.</li>
+          <li>Reliable: High accuracy in detecting various fungal infections.</li>
+        </ul>
+      </section>
+    </main>
+    
+    <aside class="sidebar">
+      <h2>About This Website</h2>
+      <p>Our website uses advanced Convolutional Neural Networks (CNN) to detect fungal skin infections from images. It's an easy, smart, and accessible solution for everyone.</p>
+    </aside>
+  </div>
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen" style="display: none;">
+    <div class="loading-container">
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+  
+  <script src="/js/loading.js"></script>
 </body>
 </html>
+
+
