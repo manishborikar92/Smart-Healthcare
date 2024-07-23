@@ -81,7 +81,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-4), loss='cate
 
 # Define callbacks
 early_stopping = EarlyStopping(monitor='val_loss', patience=7, restore_best_weights=True)
-model_checkpoint = ModelCheckpoint('model/fungal_skin_model_resnet50v2.keras', save_best_only=True)
+model_checkpoint = ModelCheckpoint('model/skin_cancer_model_resnet50v2.keras', save_best_only=True)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6)
 
 # Define learning rate scheduler
@@ -107,10 +107,10 @@ print(f'Test Loss: {test_loss}')
 print(f'Test Accuracy: {test_accuracy}')
 
 # Save the model
-model.save('model/fungal_skin_model_resnet50v2.keras', include_optimizer=False)
+model.save('model/skin_cancer_model_resnet50v2.keras', include_optimizer=False)
 
 # Convert model to TFLite for size reduction
 # converter = tf.lite.TFLiteConverter.from_keras_model(model)
 # tflite_model = converter.convert()
-# with open('model/fungal_skin_model_resnet50v2.tflite', 'wb') as f:
+# with open('model/skin_cancer_model_resnet50v2.tflite', 'wb') as f:
 #     f.write(tflite_model)
