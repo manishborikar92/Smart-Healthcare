@@ -1,265 +1,155 @@
-/* Index CSS */
-*{
+/* Global Styles */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,body{
+html, body {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #ece9e6, #ffffff);
-  color: #333;
-  font-family: 'General Sans';
-  padding: 20px;
+  font-family: 'General Sans', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-header {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-.navbar h1 {
-  margin: 0;
-}
-
-.menu-icon {
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.sidebar {
-  flex: 1;
-  min-width: 220px;
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar h2 {
-  margin-top: 0;
-}
-
-.main-content {
-  flex: 3;
-  min-width: 300px;
-}
-
-.upload-section, .why-use {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.upload-section h2, .why-use h2 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-form {
-  text-align: center;
-}
-
-input[type="file"] {
-  display: block;
-  margin: 20px auto;
-  padding: 10px;
-  border: 2px dashed #2c3e50;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2980b9;
-}
-
-button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(50, 50, 93, 0.25), 0 0 10px rgba(50, 50, 93, 0.25), 0 0 15px rgba(50, 50, 93, 0.25);
-}
-
-.why-use ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.why-use li {
-  background: #f1f1f1;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-}
-
-.why-use li:before {
-  content: '✔️';
-  margin-right: 10px;
-  color: green;
-}
-
-/* Loading Screen Styles */
-.loading-screen {
+/* Background and Canvas */
+.background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.loading-container {
-  position: relative;
-  width: 80%;
-  max-width: 600px;
-  height: 12px;
-  background-color: #f3f3f3;
-  border-radius: 6px;
+  z-index: -1;
+  background: linear-gradient(135deg, #6e45e2, #88d3ce);
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-.loading-bar {
+#backgroundCanvas {
+  position: absolute;
   width: 100%;
   height: 100%;
-  /* background: linear-gradient(90deg, rgba(52, 152, 219, 0.8), rgba(52, 152, 219, 0.4), rgba(52, 152, 219, 0.8)); */
-  background: linear-gradient(90deg, rgba(52, 152, 219, 0.4), rgb(52, 152, 219), rgba(52, 152, 219, 0.4));
-  position: absolute;
+  object-fit: cover; /* Ensure it covers the entire area */
+}
+
+/* Cursor */
+.cursor {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed; 
   top: 0;
-  left: -100%;
-  border-radius: 6px;
-  animation: loading 2s infinite;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999; /* so that it stays on top of all other elements */
 }
 
-@keyframes loading {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 0%;
-  }
-  100% {
-    left: 100%;
-  }
+
+
+
+
+/* Navigation Bar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+  /* border-radius: 15px; */
+  transform: translateZ(0); /* Ensure 3D transformation */
 }
 
-/* Additional Styling for Loading Screen Text */
-.loading-screen p {
-  color: white;
-  font-size: 18px;
-  margin-top: 20px;
-  text-align: center;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-name {
+  color: #fff;
+  font-size: 2em; /* Larger font size for prominence */
   font-weight: bold;
 }
 
-/* Result CSS */
-/* styles.css */
-
-header {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.navbar {
+/* Content Section Styles */
+.content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  height: calc(100vh - 60px); /* Adjust based on navbar height */
+  padding: 40px;
+  margin-top: 60px; /* Adjust based on navbar height */
+  overflow: hidden; /* Hide any overflow */
 }
 
-.navbar h1 {
-  margin: 0;
-}
-
-.menu-icon {
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.main-content {
+.info-section, .upload-section {
   flex: 1;
-  min-width: 300px;
+  height: 80%;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9); /* Slightly opaque background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth 3D effect */
 }
 
-.result-section {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.info-section {
+  margin-right: 20px;
+}
+
+.upload-section {
+  margin-left: 20px;
+}
+
+.upload-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-section input[type="file"] {
   margin-bottom: 20px;
-  text-align: center;
 }
 
-.result-section h2 {
-  color: #2c3e50;
-}
-
-.result-section p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.result-section .btn {
-  display: inline-block;
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
+.upload-section button {
+  background-color: #6e45e2;
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  padding: 12px 24px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
+  font-size: 1em; /* Larger font size for better readability */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
-.result-section .btn:hover {
-  background-color: #2980b9;
+.upload-section button:hover {
+  background-color: #5737b3;
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
 
-.result-section .btn:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(50, 50, 93, 0.25), 0 0 10px rgba(50, 50, 93, 0.25), 0 0 15px rgba(50, 50, 93, 0.25);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .brand-name {
+    font-size: 1.5em;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .info-section, .upload-section {
+    width: 100%;
+    margin: 0 0 20px 0; /* Add margin-bottom for spacing */
+  }
 }

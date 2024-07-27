@@ -3,5 +3,9 @@ data
 model
 node_modules
 public/uploads
+utils/EfficientNetV2preprocess.py
+utils/EfficientNetV2train_model.py
+utils/ResNetV2preprocess.py
+utils/ResNetV2train_model.py
 venv
 ProjectStructure.md
