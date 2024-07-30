@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
-from tensorflow.keras.applications.efficientnet_v2 import preprocess_input
+from tensorflow.keras.applications.resnet_v2 import preprocess_input
 import contextlib
 import io
 
@@ -16,7 +16,7 @@ train_dir = 'data/dataset/splits/train'
 disease_names = sorted(os.listdir(train_dir))
 
 def load_image(img_path):
-    img = image.load_img(img_path, target_size=(300, 300))  # Updated target size for EfficientNetV2 B3
+    img = image.load_img(img_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = preprocess_input(img_array)
@@ -24,7 +24,7 @@ def load_image(img_path):
 
 def predict(image_path):
     try:
-        model = load_model('model/fungal_skin_model_efficientnetv2_b3.keras')
+        model = load_model('model/skin_cancer_model_resnet152v2.keras')
         img_array = load_image(image_path)
 
         # Suppress TensorFlow progress bar
@@ -39,10 +39,6 @@ def predict(image_path):
             disease_name = "Unknown"
 
         accuracy = predictions[0][decoded_predictions[0]] * 100
-        # Ensure that the accuracy result is not 100%
-        if accuracy == 100:
-            accuracy -= 0.01
-
         result = {
             "disease": disease_name,
             "accuracy": round(accuracy, 2)
