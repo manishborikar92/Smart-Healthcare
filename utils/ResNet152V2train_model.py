@@ -71,7 +71,7 @@ output = Dense(train_generator.num_classes, activation='softmax')(x)
 model = Model(inputs=base_model.input, outputs=output)
 
 # Unfreeze some layers of ResNet152V2
-for layer in base_model.layers[:500]:  # Unfreeze only the top 500 layers
+for layer in base_model.layers[:500]:  # Adjust as needed to fine-tune more/less layers
     layer.trainable = False
 for layer in base_model.layers[500:]:
     layer.trainable = True
@@ -87,9 +87,9 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr
 # Define learning rate scheduler
 def scheduler(epoch, lr):
     if epoch < 10:
-        return float(lr)
+        return lr
     else:
-        return float(lr * tf.math.exp(-0.1))
+        return lr * tf.math.exp(-0.1)
 
 lr_scheduler = LearningRateScheduler(schedule=scheduler)
 
