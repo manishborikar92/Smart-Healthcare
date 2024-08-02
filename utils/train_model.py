@@ -13,8 +13,8 @@ test_dir = 'data/dataset/splits/test'
 
 # Parameters
 image_size = (224, 224)  # ResNet152V2 default input size
-batch_size = 32
-epochs = 50
+batch_size = 64  # Increased batch size
+epochs = 100  # Increased number of epochs
 
 # Data generators with enhanced augmentation
 train_datagen = ImageDataGenerator(
@@ -80,7 +80,7 @@ for layer in base_model.layers[500:]:
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-4), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Define callbacks
-early_stopping = EarlyStopping(monitor='val_loss', patience=7, restore_best_weights=True)
+early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)  # Increased patience
 model_checkpoint = ModelCheckpoint('model/skin_cancer_model_resnet152v2.keras', save_best_only=True)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6)
 
