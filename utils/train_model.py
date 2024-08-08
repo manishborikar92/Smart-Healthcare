@@ -13,8 +13,8 @@ test_dir = 'data/dataset/splits/test'
 
 # Parameters
 image_size = (224, 224)  # ResNet152V2 default input size
-batch_size = 64  # Increased batch size
-epochs = 100  # Increased number of epochs
+batch_size = 128  # Further increased batch size
+epochs = 150  # Further increased number of epochs
 
 # Data generators with enhanced augmentation
 train_datagen = ImageDataGenerator(
@@ -76,8 +76,8 @@ for layer in base_model.layers[:500]:  # Adjust as needed to fine-tune more/less
 for layer in base_model.layers[500:]:
     layer.trainable = True
 
-# Compile model with advanced optimizer
-model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-4), loss='categorical_crossentropy', metrics=['accuracy'])
+# Compile model with slightly adjusted learning rate for larger batch size
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=2e-4), loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Define callbacks
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)  # Increased patience

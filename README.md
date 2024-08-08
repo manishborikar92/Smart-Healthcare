@@ -1,4 +1,4 @@
-# skin cancer Infection Detection
+# Skin Diseases Detection
 
 This project is a web application that uses a Convolutional Neural Network (CNN) to detect skin cancer diseases from uploaded images. The backend is built with Express.js, and the frontend uses EJS templating with HTML and CSS. The application allows users to upload an image and receive a prediction of the skin cancer disease along with the accuracy of the prediction.
 
@@ -64,6 +64,16 @@ smart-healthcare/
    Ensure you have the dataset in the `data/dataset/splits/` directory.
 
    ```
+   # Create a virtual environment
+   python -m venv venv
+
+   # Activate the virtual environment
+   # On Windows
+   venv\Scripts\activate
+
+   # On macOS/Linux
+   source venv/bin/activate
+
    python utils/train_model.py
    ```
 
@@ -104,7 +114,7 @@ smart-healthcare/
 
 ## Model Training
 
-The model is trained using a dataset of skin cancer disease images categorized into different classes. The training script `train_model.py` uses ResNet50V2 as the base model with additional layers for better accuracy.
+The model is trained using a dataset of skin cancer disease images categorized into different classes. The training script `train_model.py` uses ResNet152V2 as the base model with additional layers for better accuracy.
 
 ## Contributing
 
