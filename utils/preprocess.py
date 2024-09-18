@@ -24,7 +24,7 @@ def load_image(img_path):
 
 def predict(image_path):
     try:
-        model = load_model('model/skin_cancer_model_resnet152v2.keras')
+        model = load_model('model/skin_cancer_model_resnet50v2.keras')
         img_array = load_image(image_path)
 
         # Suppress TensorFlow progress bar
