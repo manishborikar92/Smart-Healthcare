@@ -57,6 +57,7 @@ smart-healthcare/
 
    ```
    npm install
+   npm install express multer body-parser ejs
    ```
 
 3. Train the model:
@@ -74,6 +75,8 @@ smart-healthcare/
    # On macOS/Linux
    source venv/bin/activate
 
+   pip install -r requirements.txt
+   
    python utils/train_model.py
    ```
 

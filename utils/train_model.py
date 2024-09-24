@@ -5,7 +5,6 @@ from tensorflow.keras.applications import ResNet50V2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout, BatchNormalization
 from tensorflow.keras.models import Model
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau, LearningRateScheduler
-from sklearn.utils.class_weight import compute_class_weight
 
 # Directory paths
 train_dir = 'data/dataset/splits/train'
@@ -16,7 +15,6 @@ test_dir = 'data/dataset/splits/test'
 image_size = (224, 224)  # ResNet50V2 default input size
 batch_size = 32
 epochs = 30
-AUTOTUNE = tf.data.AUTOTUNE
 
 # Data generators with enhanced augmentation
 train_datagen = ImageDataGenerator(
@@ -33,7 +31,6 @@ train_datagen = ImageDataGenerator(
 validation_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
-# DirectoryIterator for loading data from directories
 train_generator = train_datagen.flow_from_directory(
     train_dir,
     target_size=image_size,
@@ -56,32 +53,6 @@ test_generator = test_datagen.flow_from_directory(
     shuffle=False
 )
 
-# Convert DirectoryIterator to tf.data.Dataset for optimization
-train_dataset = tf.data.Dataset.from_generator(
-    lambda: train_generator,
-    output_signature=(
-        tf.TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32),
-        tf.TensorSpec(shape=(None, train_generator.num_classes), dtype=tf.float32)
-    )
-).cache().prefetch(buffer_size=AUTOTUNE)
-
-validation_dataset = tf.data.Dataset.from_generator(
-    lambda: validation_generator,
-    output_signature=(
-        tf.TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32),
-        tf.TensorSpec(shape=(None, validation_generator.num_classes), dtype=tf.float32)
-    )
-).prefetch(buffer_size=AUTOTUNE)
-
-# Compute class weights
-class_weights = compute_class_weight(
-    class_weight='balanced',
-    classes=np.unique(train_generator.classes),
-    y=train_generator.classes
-)
-
-class_weights_dict = dict(enumerate(class_weights))
-
 # Load ResNet50V2 model without the top layer
 base_model = ResNet50V2(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
@@ -99,8 +70,8 @@ x = Dense(train_generator.num_classes, activation='softmax')(x)
 # Define model
 model = Model(inputs=base_model.input, outputs=x)
 
-# Unfreeze some layers of ResNet50V2 for fine-tuning
-for layer in base_model.layers[:150]:
+# Unfreeze some layers of ResNet50V2
+for layer in base_model.layers[:150]:  # Unfreeze only the top 150 layers
     layer.trainable = False
 for layer in base_model.layers[150:]:
     layer.trainable = True
@@ -116,18 +87,17 @@ reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr
 # Define learning rate scheduler
 def scheduler(epoch, lr):
     if epoch < 10:
-        return lr
+        return float(lr)
     else:
-        return lr * tf.math.exp(-0.1)
+        return float(lr * tf.math.exp(-0.1))
 
 lr_scheduler = LearningRateScheduler(schedule=scheduler)
 
 # Train model
 history = model.fit(
-    train_dataset,
+    train_generator,
     epochs=epochs,
-    validation_data=validation_dataset,
-    class_weight=class_weights_dict,
+    validation_data=validation_generator,
     callbacks=[early_stopping, model_checkpoint, reduce_lr, lr_scheduler]
 )
 
