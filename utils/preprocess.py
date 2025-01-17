@@ -37,10 +37,12 @@ def predict(image_path):
         else:
             disease_name = "Unknown"
 
-        accuracy = predictions[0][decoded_predictions[0]] * 100
+        # Convert accuracy from float32 to float
+        accuracy = float(predictions[0][decoded_predictions[0]] * 100)  # Convert to float to be JSON serializable
+        
         result = {
             "disease": disease_name,
-            "accuracy": round(accuracy, 2)
+            "accuracy": round(accuracy, 2)  # Round to 2 decimal places
         }
 
         folder = 'uploads'

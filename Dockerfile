@@ -14,7 +14,7 @@ RUN npm install --production
 COPY . .
 
 # Stage 2: Setup Python environment
-FROM python:3.12.8 AS python-builder
+FROM python:3.11.9 AS python-builder
 
 # Set working directory for Python
 WORKDIR /usr/src/app
