@@ -1,4 +1,5 @@
 import os
+import shutil
 import sys
 import json
 import numpy as np
@@ -43,6 +44,17 @@ def predict(image_path):
             "disease": disease_name,
             "accuracy": round(accuracy, 2)
         }
+
+        folder = 'public/uploads'
+        if os.path.exists(folder):
+            if os.listdir(folder):  # Check if the folder is empty
+                for item in os.listdir(folder):
+                    item_path = os.path.join(folder, item)
+                    if os.path.isdir(item_path):
+                        shutil.rmtree(item_path)
+                    else:
+                        os.remove(item_path)
+
         return result
     except Exception as e:
         return {"error": str(e)}
