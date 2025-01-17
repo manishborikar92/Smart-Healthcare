@@ -1,10 +1,8 @@
 __pycache__
 data
-model/skin_cancer_model_resnet50v2_1.keras
-model/skin_cancer_model_resnet152v2.keras
+model
 node_modules
 public/uploads
 venv
 ProjectStructure.md
-
 .vercel
