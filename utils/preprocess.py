@@ -9,12 +9,10 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet_v2 import preprocess_input
 import contextlib
 import io
+import gradio as gr
+from PIL import Image
 
-# Set the training directory path
-train_dir = 'data/dataset/splits/train'
-
-# Dynamically create disease_names list based on the folder names in the training directory
-disease_names = sorted(os.listdir(train_dir))
+disease_names = ['Burn_Skin', 'Healthy_Skin', 'Malignant', 'Non_Cancerous', 'Non_Skin']
 
 def load_image(img_path):
     img = image.load_img(img_path, target_size=(224, 224))
