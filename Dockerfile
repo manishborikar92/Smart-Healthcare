@@ -5,13 +5,13 @@ FROM node:20-alpine AS node-builder
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY package*.json ./ 
 
 # Install Node.js dependencies (production only)
 RUN npm install --production
 
 # Copy the rest of the application files
-COPY . .
+COPY . . 
 
 # Stage 2: Setup Python environment
 FROM python:3.10 AS python-builder
@@ -35,7 +35,7 @@ WORKDIR /usr/src/app
 COPY --from=node-builder /usr/src/app /usr/src/app
 
 # Copy Python environment and dependencies from python-builder stage
-COPY --from=python-builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=python-builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 COPY --from=python-builder /usr/local/bin /usr/local/bin
 
 # Expose the port where Node.js app will listen (e.g., 3000)
