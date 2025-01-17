@@ -45,7 +45,7 @@ def predict(image_path):
             "accuracy": round(accuracy, 2)
         }
 
-        folder = 'public/uploads'
+        folder = 'uploads'
         if os.path.exists(folder):
             if os.listdir(folder):  # Check if the folder is empty
                 for item in os.listdir(folder):

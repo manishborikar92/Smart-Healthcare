@@ -30,15 +30,17 @@ smart-healthcare/
 ├── public/
 │   ├── css/
 │   │   └── styles.css
-│   └── uploads/
+│   ├── js/
+│   │   ├── cursor.js
+│   │   └── loading.js
+│   ├── index.ejs
+│   └── result.ejs
 ├── routes/
 │   └── index.js
+├── uploads/
 ├── utils/
 │   ├── preprocess.py
 │   └── train_model.py
-├── views/
-│   ├── index.ejs
-│   └── result.ejs
 ├── app.js
 ├── package.json
 └── vercel.json
@@ -109,8 +111,8 @@ smart-healthcare/
 - api/predict.js: Handles the image upload and calls the Python script to make a prediction.
 - routes/index.js: Defines the routes for the homepage and result page.
 - utils/preprocess.py: Preprocesses the image and makes predictions using the trained model.
-- views/index.ejs: The homepage where users can upload images.
-- views/result.ejs: Displays the prediction result.
+- public/index.ejs: The homepage where users can upload images.
+- public/result.ejs: Displays the prediction result.
 - app.js: Main server file that sets up the Express server and routes.
 - package.json: Lists the project dependencies.
 - vercel.json: Configuration file for deploying on Vercel.

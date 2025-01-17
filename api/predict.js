@@ -4,7 +4,7 @@ const { exec } = require('child_process');
 const path = require('path');
 
 router.post('/predict', (req, res) => {
-    const imagePath = path.join(__dirname, '../public/uploads/', req.file.filename);
+    const imagePath = path.join(__dirname, '../uploads/', req.file.filename);
     const command = `set PYTHONIOENCODING=utf-8 && python utils/preprocess.py "${imagePath}"`;
 
     exec(command, { encoding: 'utf8' }, (error, stdout, stderr) => {

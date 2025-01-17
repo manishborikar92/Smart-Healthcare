@@ -3,7 +3,7 @@ __pycache__
 data
 skin_cancer_model_resnet50v2.keras
 node_modules
-public/uploads
+uploads
 venv
 ProjectStructure.md
 
