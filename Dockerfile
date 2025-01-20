@@ -50,9 +50,14 @@ RUN apt-get update && apt-get install -y \
 # Copy Node.js app from the build stage
 COPY --from=node-builder /usr/src/app /usr/src/app
 
-# Copy Python environment and dependencies from python-builder stage
-COPY --from=python-builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
+# Copy Python shared libraries and dependencies from python-builder stage
+COPY --from=python-builder /usr/local/lib /usr/local/lib
 COPY --from=python-builder /usr/local/bin /usr/local/bin
+COPY --from=python-builder /usr/lib /usr/lib
+COPY --from=python-builder /usr/src/app /usr/src/app
+
+# Ensure Python shared libraries are linked
+ENV LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 
 # Expose the port where Node.js app will listen (e.g., 3000)
 EXPOSE 3000
