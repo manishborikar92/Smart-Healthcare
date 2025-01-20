@@ -1,5 +1,5 @@
 # Stage 1: Build the Node.js app
-FROM node:20-alpine AS node-builder
+FROM node:20 AS node-builder
 
 # Set working directory for Node.js
 WORKDIR /usr/src/app
@@ -13,11 +13,11 @@ RUN npm install --production
 # Copy the rest of the application files
 COPY . . 
 
-# Stage 2: Setup Python environment
-FROM python:3.10-alpine AS python-builder
+# Stage 2: Setup Python environment (use a non-Alpine image)
+FROM python:3.10 AS python-builder
 
 # Install required dependencies (e.g., for compiling Python packages)
-RUN apk add --no-cache gcc musl-dev libffi-dev
+RUN apt-get update && apt-get install -y gcc libffi-dev
 
 # Set working directory for Python
 WORKDIR /usr/src/app
@@ -30,13 +30,13 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Stage 3: Final stage (combining Node.js and Python)
-FROM node:20-alpine
+FROM node:20
 
 # Set working directory
 WORKDIR /usr/src/app
 
 # Install Python in the final container to make sure `python` is available
-RUN apk add --no-cache python3 py3-pip
+RUN apt-get update && apt-get install -y python3 python3-pip
 
 # Copy Node.js app from the build stage
 COPY --from=node-builder /usr/src/app /usr/src/app
