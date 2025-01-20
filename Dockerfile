@@ -14,13 +14,16 @@ RUN npm install --production
 COPY . . 
 
 # Stage 2: Setup Python environment
-FROM python:3.10 AS python-builder
+FROM python:3.10-alpine AS python-builder
+
+# Install required dependencies (e.g., for compiling Python packages)
+RUN apk add --no-cache gcc musl-dev libffi-dev
 
 # Set working directory for Python
 WORKDIR /usr/src/app
 
 # Copy Python dependencies
-COPY requirements.txt ./
+COPY requirements.txt ./ 
 
 # Install Python dependencies (including model and inference-related libraries)
 RUN pip install --no-cache-dir -r requirements.txt
@@ -30,6 +33,9 @@ FROM node:20-alpine
 
 # Set working directory
 WORKDIR /usr/src/app
+
+# Install Python in the final container to make sure `python` is available
+RUN apk add --no-cache python3 py3-pip
 
 # Copy Node.js app from the build stage
 COPY --from=node-builder /usr/src/app /usr/src/app
