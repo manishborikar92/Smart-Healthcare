@@ -17,7 +17,7 @@ COPY . .
 FROM python:3.10-alpine AS python-builder
 
 # Install required dependencies for TensorFlow and compiling Python packages
-RUN apk add --no-cache gcc musl-dev libffi-dev openblas-dev python3-dev
+RUN apk add --no-cache gcc musl-dev libffi-dev openblas-dev python3-dev libc-dev
 
 # Set working directory for Python
 WORKDIR /usr/src/app
@@ -36,7 +36,7 @@ FROM node:20-alpine
 WORKDIR /usr/src/app
 
 # Install Python in the final container to make sure `python` is available
-RUN apk add --no-cache python3 py3-pip libpython3.10
+RUN apk add --no-cache python3 py3-pip
 
 # Copy Node.js app from the build stage
 COPY --from=node-builder /usr/src/app /usr/src/app
