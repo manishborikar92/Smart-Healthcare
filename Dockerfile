@@ -27,7 +27,7 @@ COPY requirements.txt ./
 
 # Upgrade pip and install dependencies with increased timeout and alternate mirror
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir --timeout=120 -i https://pypi.org/simple -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Stage 3: Final stage (combining Node.js and Python)
 FROM node:20-alpine
