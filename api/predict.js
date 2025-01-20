@@ -12,16 +12,25 @@ router.post('/predict', (req, res) => {
             console.error(`Error executing script: ${error}`);
             return res.status(500).send('Internal Server Error');
         }
-        // Trim any extra lines and parse the JSON
-        console.log('Python script output:', stdout);
+
+        // Clean stdout to isolate the JSON part
         try {
-            const jsonString = stdout.trim();
-            const result = JSON.parse(jsonString);
-            if (result.error) {
-                console.error(`Prediction error: ${result.error}`);
-                res.status(500).send('Internal Server Error');
-            } else {
+            console.log('Python script output:', stdout);
+
+            // Extract valid JSON from stdout using regex to capture the first JSON object
+            const jsonMatch = stdout.match(/{.*}/);
+            if (jsonMatch) {
+                let jsonString = jsonMatch[0]; // Extract the JSON part
+                console.log('Extracted JSON:', jsonString);
+
+                // Convert single quotes to double quotes for proper JSON parsing
+                jsonString = jsonString.replace(/'/g, '"');
+
+                const result = JSON.parse(jsonString); // Parse the corrected JSON
                 res.render('result', { result });
+            } else {
+                console.error('No valid JSON found in stdout');
+                res.status(500).send('Internal Server Error');
             }
         } catch (parseError) {
             console.error(`Error parsing JSON: ${parseError}`);
