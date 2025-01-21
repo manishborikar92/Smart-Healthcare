@@ -90,13 +90,13 @@ This app is intended for **educational purposes only**. It should not be used as
 
 ## 👨🏻‍💻 Developers
 
-- **Name**: Manish Borikar  
+### Manish Borikar  
 - **Email**: [manishborikar@proton.me](mailto:manishborikar@proton.me)  
 - **GitHub**: [manishborikar92](https://github.com/manishborikar92)
 
-- **Name**: Prankita Potbhare  
+### Prankita Potbhare  
 - **Email**: [prankitapotbhare@proton.me](mailto:prankitapotbhare@proton.me)  
-- **GitHub**: [prankitapotbhare](https://github.com/prankitapotbhare)
+- **GitHub**: [prankitapotbhare](https://github.com/prankitapotbhare)  
 
 ---
 
