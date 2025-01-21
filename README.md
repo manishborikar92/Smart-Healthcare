@@ -1,130 +1,99 @@
-# Skin Diseases Detection
+# 🩺 Skin Disease Classification App
 
-This project is a web application that uses a Convolutional Neural Network (CNN) to detect skin cancer diseases from uploaded images. The backend is built with Express.js, and the frontend uses EJS templating with HTML and CSS. The application allows users to upload an image and receive a prediction of the skin cancer disease along with the accuracy of the prediction.
+This **Skin Disease Classification App** leverages a custom-trained **ResNet-50 v2** model hosted on **Hugging Face Spaces** to identify skin conditions from uploaded images. The app, built with **React** and **Vite**, provides an intuitive and responsive interface for real-time predictions.
 
-## Project Structure
+## 🌟 Features
+- **AI-Powered Predictions**: Accurately classifies skin images into five categories:
+  - Burn Skin
+  - Healthy Skin
+  - Malignant
+  - Non-Cancerous
+  - Non-Skin
+- **Real-Time Analysis**: Get instant results with predicted disease and confidence scores.
+- **Modern Design**: Built using React with responsive, user-friendly UI/UX.
+- **Hugging Face Model API**: Leverages your custom-trained model deployed on Hugging Face for efficient and scalable predictions.
 
-```
-smart-healthcare/
-├── api/
-│   └── predict.js
-├── data/
-│   ├── dataset/
-│   │   ├── splits/
-│   │   │   ├── test/
-│   │   │   │   ├── [disease folder 1]/
-│   │   │   │   ├── [disease folder 2]/
-│   │   │   │   └── ...
-│   │   │   ├── train/
-│   │   │   │   ├── [disease folder 1]/
-│   │   │   │   ├── [disease folder 2]/
-│   │   │   │   └── ...
-│   │   │   └── validation/
-│   │   │       ├── [disease folder 1]/
-│   │   │       ├── [disease folder 2]/
-│   │   │       └── ...
-│   └── labels.csv (Optional)
-├── model/
-│   └── fungal_skin_model.keras
-├── node_modules/
-├── public/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   ├── cursor.js
-│   │   └── loading.js
-│   ├── index.ejs
-│   └── result.ejs
-├── routes/
-│   └── index.js
-├── uploads/
-├── utils/
-│   ├── preprocess.py
-│   └── train_model.py
-├── app.js
-├── package.json
-└── vercel.json
-```
+## 🌐 Live Demo
+Access the app here: [Skin Disease Classification App](https://smart-healthcare-react-vite.app/)  
 
-## Installation
+---
 
-1. Clone the repository:
+## 🖼️ How It Works (Visual Guide)
 
-   ```
-   git clone https://github.com/VirtualVanguards/Smart-Healthcare.git
-   cd smart-healthcare
+### 1. Upload an Image  
+Users can upload a skin lesion image directly through the file uploader.  
+![Upload Image](./images/upload-image.png)
+
+### 2. AI Prediction  
+Once the image is uploaded, it is sent to the Hugging Face API for processing.  
+![AI Prediction](./images/ai-prediction.png)
+
+### 3. Results Displayed  
+The app displays the classified disease along with its confidence score.  
+![Results Display](./images/results-display.png)
+
+---
+
+## 🛠️ Technologies Used
+- **React & Vite**: For building a high-performance, modern web application.
+- **Tailwind CSS**: To design a responsive and visually appealing UI.
+- **Hugging Face Spaces**: For hosting and deploying the custom-trained ResNet-50 v2 model.
+- **TensorFlow**: For training the skin disease classification model.
+- **Node.js (Express)**: Backend API for managing Hugging Face requests.
+
+---
+
+## 📋 Installation (For Local Development)
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/manishborikar92/Smart-Healthcare-React.git
+   cd Smart-Healthcare-React
    ```
 
-2. Install dependencies:
-
-   ```
+2. **Install Dependencies**:
+   ```bash
    npm install
-   npm install express multer body-parser ejs
    ```
 
-3. Train the model:
-
-   Ensure you have the dataset in the `data/dataset/splits/` directory.
-
-   ```
-   # Create a virtual environment
-   python -m venv venv
-
-   # Activate the virtual environment
-   # On Windows
-   venv\Scripts\activate
-
-   # On macOS/Linux
-   source venv/bin/activate
-
-   pip install -r requirements.txt
-   
-   python utils/train_model.py
+3. **Start the Development Server**:
+   ```bash
+   npm run dev
    ```
 
-4. Run the server:
+4. **Open the App**:  
+   Navigate to `http://localhost:3000` in your browser.
 
-   ```
-   node app.js
-   ```
+---
 
-5. Deploy on Vercel:
+## 📂 Project Structure
+```
+.
+├── src/
+│   ├── App.jsx            # Main React app component
+│   ├── components/        # UI components (Header, Footer, etc.)
+│   ├── assets/            # Static images
+├── public/                # Static files
+├── package.json           # Project metadata and dependencies
+├── README.md              # Project documentation
+└── vite.config.js         # Vite configuration
+```
 
-   Ensure you have the Vercel CLI installed.
+---
 
-   ```
-   vercel --prod
-   ```
+## ⚠️ Disclaimer
+This app is intended for **educational purposes only**. It should not be used as a substitute for professional medical advice. Always consult a certified healthcare provider for diagnosis and treatment.
 
-## Usage
+---
 
-1. Upload Image:
+## 📞 Contact
+For feedback or inquiries:
+- **Name**: Manish Borikar  
+- **Email**: [manishborikar@proton.me](mailto:manishborikar@proton.me)  
+- **GitHub**: [manishborikar92](https://github.com/manishborikar92)
 
-   Visit the homepage, upload an image of the skin, and submit.
+---
 
-2. View Prediction:
-
-   After submission, the result page will display the predicted skin cancer disease and the accuracy of the prediction.
-
-## Files Description
-
-- api/predict.js: Handles the image upload and calls the Python script to make a prediction.
-- routes/index.js: Defines the routes for the homepage and result page.
-- utils/preprocess.py: Preprocesses the image and makes predictions using the trained model.
-- public/index.ejs: The homepage where users can upload images.
-- public/result.ejs: Displays the prediction result.
-- app.js: Main server file that sets up the Express server and routes.
-- package.json: Lists the project dependencies.
-- vercel.json: Configuration file for deploying on Vercel.
-
-## Model Training
-
-The model is trained using a dataset of skin cancer disease images categorized into different classes. The training script `train_model.py` uses ResNet152V2 as the base model with additional layers for better accuracy.
-
-## Contributing
-
-Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🏅 Acknowledgments
+- **Hugging Face Spaces** for model hosting and API support.
+- **React & Vite** for providing a robust frontend framework.
+- **TensorFlow** for enabling advanced AI model training.
