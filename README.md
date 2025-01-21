@@ -13,10 +13,12 @@ This **Skin Disease Classification App** leverages a custom-trained **ResNet-50 
 - **Modern Design**: Built using React with responsive, user-friendly UI/UX.
 - **Hugging Face Model API**: Leverages your custom-trained model deployed on Hugging Face for efficient and scalable predictions.
 
-## 🌐 Live Demo
-On Vercel [Skin Disease Classification App](https://smart-healthcare-ai.vercel.app/)  
-On Streamlit [Skin Disease Classification App](https://smart-healthcare.streamlit.app/)
-On Render [Skin Disease Classification App](https://smart-healthcare-xe3p.onrender.com/)
+## 🚀 Live Demo
+Explore the app on different platforms:
+
+- **On Vercel**: [Skin Disease Classification App](https://smart-healthcare-ai.vercel.app/)
+- **On Streamlit**: [Skin Disease Classification App](https://smart-healthcare.streamlit.app/)
+- **On Render**: [Skin Disease Classification App](https://smart-healthcare-xe3p.onrender.com/)
 ---
 
 ## 🖼️ How It Works (Visual Guide)
