@@ -88,11 +88,15 @@ This app is intended for **educational purposes only**. It should not be used as
 
 ---
 
-## 📞 Contact
-For feedback or inquiries:
+## 👨🏻‍💻 Developers
+
 - **Name**: Manish Borikar  
 - **Email**: [manishborikar@proton.me](mailto:manishborikar@proton.me)  
 - **GitHub**: [manishborikar92](https://github.com/manishborikar92)
+
+- **Name**: Prankita Potbhare  
+- **Email**: [prankitapotbhare@proton.me](mailto:prankitapotbhare@proton.me)  
+- **GitHub**: [prankitapotbhare](https://github.com/prankitapotbhare)
 
 ---
 

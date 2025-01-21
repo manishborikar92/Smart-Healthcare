@@ -70,11 +70,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white flex flex-col justify-center items-center py-10 px-6">
-      <header className="text-center mb-12 max-w-4xl">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500 leading-normal py-2">
+      <header className="text-center mb-5 max-w-4xl">
+        <h1 className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500 leading-normal py-2">
           🩺 Skin Disease Diagnosis
         </h1>
-        <p className="mt-4 text-lg sm:text-xl md:text-2xl opacity-80">
+        <p className="mt-4 text-sm sm:text-xl md:text-2xl opacity-80">
           Upload a skin image, and our AI-powered model will provide a diagnosis with accuracy.
         </p>
       </header>
@@ -131,13 +131,20 @@ function App() {
 
       <footer className="mt-12 text-center text-sm text-gray-500">
         <p>
-          Developed by{" "}
+          Developed by{" "}<br></br>
+          <a
+            href="https://github.com/prankitapotbhare"
+            className="text-teal-400 hover:underline"
+          >
+            Prankita Potbhare
+          </a>{" & "}
           <a
             href="https://github.com/manishborikar92/Smart-Healthcare"
             className="text-teal-400 hover:underline"
           >
             Manish Borikar
           </a>
+          
         </p>
       </footer>
     </div>
