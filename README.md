@@ -1,6 +1,6 @@
-# 🩺 Skin Disease Classification App
+# 🩺 Smart Healthcare App
 
-This **Skin Disease Classification App** leverages a custom-trained **ResNet-50 v2** model hosted on **Hugging Face Spaces** to identify skin conditions from uploaded images. The app, built with **React** and **Vite**, provides an intuitive and responsive interface for real-time predictions.
+This **Smart Healthcare App** leverages a custom-trained **ResNet-50 v2** model hosted on **Hugging Face Spaces** to identify skin conditions from uploaded images. The app, built with **React** and **Vite**, provides an intuitive and responsive interface for real-time predictions.
 
 ## 🌟 Features
 - **AI-Powered Predictions**: Accurately classifies skin images into five categories:
@@ -16,9 +16,9 @@ This **Skin Disease Classification App** leverages a custom-trained **ResNet-50 
 ## 🚀 Live Demo
 Explore the app on different platforms:
 
-- **On Vercel**: [Skin Disease Classification App](https://smart-healthcare-ai.vercel.app/)
-- **On Streamlit**: [Skin Disease Classification App](https://smart-healthcare.streamlit.app/)
-- **On Render**: [Skin Disease Classification App](https://smart-healthcare-xe3p.onrender.com/)
+- **On Vercel**: [Smart Healthcare App](https://smart-healthcare-ai.vercel.app/)
+- **On Streamlit**: [Smart Healthcare App](https://smart-healthcare.streamlit.app/)
+- **On Render**: [Smart Healthcare App](https://smart-healthcare-xe3p.onrender.com/)
 ---
 
 ## 🖼️ How It Works (Visual Guide)
@@ -41,7 +41,7 @@ The app displays the classified disease along with its confidence score.
 - **React & Vite**: For building a high-performance, modern web application.
 - **Tailwind CSS**: To design a responsive and visually appealing UI.
 - **Hugging Face Spaces**: For hosting and deploying the custom-trained ResNet-50 v2 model.
-- **TensorFlow**: For training the skin disease classification model.
+- **TensorFlow**: For training the Smart Healthcare model.
 - **Node.js (Express)**: Backend API for managing Hugging Face requests.
 
 ---
