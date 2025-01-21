@@ -27,5 +27,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishborikar92/Smart-Healthcare.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/manishborikar92/Smart-Healthcare/issues"
+  },
+  "homepage": "https://github.com/manishborikar92/Smart-Healthcare#readme"
 }
