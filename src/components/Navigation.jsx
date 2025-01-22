@@ -15,7 +15,7 @@ const TabButton = ({ id, label, active, onClick }) => (
     <div className="flex justify-center space-x-4 mb-8">
       <TabButton 
         id="upload" 
-        label="Analyze Image" 
+        label="Analyze" 
         active={activeTab === 'upload'} 
         onClick={setActiveTab} 
       />
