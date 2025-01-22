@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion';
-import { Github, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import GithubLogo from '../assets/github-mark-white.svg';
+import HuggingFaceLogo from '../assets/huggingface.svg';
+import GradioLogo from '../assets/gradio.svg';
+import ReactLogo from '../assets/react.svg';
 
 const Footer = () => {
   const footerVariants = {
@@ -20,16 +24,20 @@ const Footer = () => {
           {/* Platform Info */}
           <div className="space-y-4 text-center md:text-left">
             <h3 className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-cyan-500">
-              AI Platform
+                Smart Healthcare AI
             </h3>
-            <div className="flex flex-col items-center space-y-3 md:flex-row md:space-y-0 md:space-x-4">
+            <div className="flex flex-col items-center space-y-1 md:flex-row md:space-y-0 md:space-x-4">
               <a 
                 href="https://github.com/manishborikar92/Smart-Healthcare-React" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
               >
-                <Github size={20} />
+                <img 
+                  src={GithubLogo} 
+                  alt="GitHub" 
+                  className="w-5 h-5 md:w-6 md:h-6" // Reduced size
+                />
                 <span className="text-sm">Source Code</span>
               </a>
               <a 
@@ -38,7 +46,11 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors px-3 py-2 rounded-lg hover:bg-white/5"
               >
-                <span className="text-xl md:text-2xl">🤗</span>
+                <img 
+                  src={HuggingFaceLogo} 
+                  alt="Hugging Face" 
+                  className="w-5 h-5 md:w-6 md:h-6" // Reduced size
+                />
                 <span className="text-sm">Model Hub</span>
               </a>
             </div>
@@ -66,7 +78,11 @@ const Footer = () => {
                     rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-cyan-400 text-xs md:text-sm flex items-center space-x-1.5 group"
                   >
-                    <Github size={14} className="transition-transform group-hover:scale-110" />
+                    <img 
+                      src={GithubLogo} 
+                      alt="GitHub" 
+                      className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:scale-110"
+                    />
                     <span>Manish Borikar</span>
                   </a>
                   <a 
@@ -85,7 +101,11 @@ const Footer = () => {
                     rel="noopener noreferrer" 
                     className="text-gray-400 hover:text-cyan-400 text-xs md:text-sm flex items-center space-x-1.5 group"
                   >
-                    <Github size={14} className="transition-transform group-hover:scale-110" />
+                    <img 
+                      src={GithubLogo} 
+                      alt="GitHub" 
+                      className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:scale-110" // Smaller size
+                    />
                     <span>Prankita Potbhare</span>
                   </a>
                   <a 
@@ -111,15 +131,27 @@ const Footer = () => {
             
             <div className="flex flex-wrap justify-center gap-2 md:gap-3">
               <span className="bg-cyan-400/10 text-cyan-400 px-3 py-1.5 rounded-full text-xs md:text-sm flex items-center transition hover:bg-cyan-400/20">
-                <span className="text-base md:text-lg mr-1">🤗</span>
+                <img 
+                  src={HuggingFaceLogo} 
+                  alt="Hugging Face" 
+                  className="w-4 h-4 md:w-5 md:h-5 mr-1"
+                />
                 Hugging Face
               </span>
               <span className="bg-purple-400/10 text-purple-400 px-3 py-1.5 rounded-full text-xs md:text-sm flex items-center transition hover:bg-purple-400/20">
-                <span className="text-base md:text-lg mr-1">⚡</span>
+                <img 
+                  src={GradioLogo} 
+                  alt="Gradio" 
+                  className="w-4 h-4 md:w-6 md:h-6 mr-1"
+                />
                 Gradio
               </span>
               <span className="bg-blue-400/10 text-blue-400 px-3 py-1.5 rounded-full text-xs md:text-sm transition hover:bg-blue-400/20 flex items-center">
-                <span className="text-base md:text-lg mr-1">⚛️</span>
+                <img 
+                  src={ReactLogo} 
+                  alt="React" 
+                  className="w-4 h-4 md:w-5 md:h-5 mr-1"
+                />
                 React
               </span>
             </div>
