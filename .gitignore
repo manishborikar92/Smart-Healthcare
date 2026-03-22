@@ -33,3 +33,6 @@ pnpm-debug.log*
 
 # Environment
 *.local
+
+.vercel
+.env*.local
