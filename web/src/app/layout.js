@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import SmoothScroll from '@/components/layout/SmoothScroll'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -38,8 +39,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col relative">
+    <html lang="en" className={`${inter.variable} antialiased`}>
+      <body className="flex flex-col relative bg-bg-primary text-text-primary">
         {/* Skip Navigation — Accessibility: allows keyboard users to skip to main content */}
         <a
           href="#main-content"
@@ -57,13 +58,15 @@ export default function RootLayout({ children }) {
         <div className="fixed top-0 left-1/4 w-96 h-96 bg-brand-400/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-info-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
-        <div className="relative z-10 flex flex-col min-h-screen">
-          <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <SmoothScroll>
+          <div className="relative z-10 flex flex-col min-h-screen">
+            <Header />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </SmoothScroll>
       </body>
     </html>
   )
