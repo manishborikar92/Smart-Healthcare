@@ -1,25 +1,35 @@
+# Dependencies
+node_modules/
+
+# Next.js
+web/.next/
+web/out/
+web/.env.local
+web/.env.*.local
+
+# Python
+model/.venv/
+__pycache__/
+*.pyc
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
-
-model/.venv
-node_modules
-dist
-dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Environment
+*.local

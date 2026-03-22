@@ -1,4 +1,8 @@
-const Header = () => (
+// Server Component — no directive needed
+// Pure presentational: emoji, gradient text title, subtitle. No interactivity, no hooks, no browser APIs.
+
+export default function Header() {
+  return (
     <header className="text-center mb-12">
       <div className="flex items-center justify-center mb-4">
         <span className="text-2xl sm:text-4xl md:text-6xl mr-4">🩺</span>
@@ -10,6 +14,5 @@ const Header = () => (
         Advanced AI-powered skin condition analysis for better healthcare decisions
       </p>
     </header>
-  );
-  
-  export default Header;
+  )
+}
