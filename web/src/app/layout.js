@@ -1,5 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -37,7 +39,32 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative">
+        {/* Skip Navigation — Accessibility: allows keyboard users to skip to main content */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4
+                     focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-400 focus:text-surface-950
+                     focus:rounded-lg focus:font-semibold focus:shadow-lg focus:text-sm"
+        >
+          Skip to main content
+        </a>
+
+        {/* Background decoration — grid pattern */}
+        <div className="fixed inset-0 bg-grid pointer-events-none opacity-50" aria-hidden="true" />
+
+        {/* Gradient orbs for depth */}
+        <div className="fixed top-0 left-1/4 w-96 h-96 bg-brand-400/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+        <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-info-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </body>
     </html>
   )
 }

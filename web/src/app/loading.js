@@ -1,9 +1,14 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-12 h-12 mx-auto mb-4 border-4 border-teal-500/20 border-t-teal-500 rounded-full animate-spin" />
-        <p className="text-gray-400 text-sm">Loading...</p>
+    <div className="flex-1 flex items-center justify-center py-20">
+      <div className="text-center animate-fade-in">
+        <div className="relative w-12 h-12 mx-auto mb-4">
+          {/* Outer ring */}
+          <div className="absolute inset-0 rounded-full border-2 border-brand-400/20" />
+          {/* Spinning ring */}
+          <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-brand-400 animate-spin-slow" />
+        </div>
+        <p className="text-sm text-text-secondary">Loading…</p>
       </div>
     </div>
   )
