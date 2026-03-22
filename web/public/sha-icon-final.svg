@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
   <!-- Background -->
-  <rect width="500" height="500" rx="110" fill="#0B1120"/>
+  <rect x="8" y="8" width="484" height="484" rx="106" fill="#0B1120" stroke="white" stroke-width="16"/>
 
   <!-- Shield — solid white fill -->
   <path d="M250 108
