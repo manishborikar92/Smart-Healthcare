@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Activity, Info, Sparkles, Menu, X } from 'lucide-react'
@@ -70,8 +71,16 @@ export default function Header() {
               className="flex items-center gap-3 group"
               aria-label="Smart Healthcare AI — Home"
             >
-              <div className="relative flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-brand-600 shadow-md group-hover:shadow-glow transition-shadow duration-300">
-                <Activity size={18} className="text-white" aria-hidden="true" />
+              <div className="relative flex items-center justify-center w-10 h-10 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/logo.svg" 
+                  alt="" 
+                  width={40} 
+                  height={40} 
+                  className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(45,212,191,0.25)] group-hover:drop-shadow-[0_0_12px_rgba(45,212,191,0.5)] transition-all duration-300" 
+                  priority 
+                  aria-hidden="true" 
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-bold tracking-tight text-text-primary leading-none">
