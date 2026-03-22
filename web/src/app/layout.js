@@ -18,6 +18,9 @@ export const metadata = {
   },
   description:
     'Advanced AI-powered skin condition analysis using ResNet-50 v2. Upload an image for instant classification of skin conditions including burns, malignancy, and more.',
+  appleWebApp: {
+    title: 'Smart Healthcare AI',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

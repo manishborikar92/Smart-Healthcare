@@ -87,7 +87,7 @@ export default function Header() {
             >
               <div className="relative flex items-center justify-center w-10 h-10 group-hover:scale-[1.04] transition-transform duration-300 ease-out">
                 <Image 
-                  src="/logo.svg" 
+                  src="/sha-icon-final.svg" 
                   alt="" 
                   width={40} 
                   height={40} 
