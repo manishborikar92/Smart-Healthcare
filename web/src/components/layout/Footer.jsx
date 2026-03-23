@@ -1,20 +1,20 @@
-import { Heart, Github, ExternalLink } from 'lucide-react'
-import Image from 'next/image'
+import { Heart, ExternalLink } from 'lucide-react'
+import { SiGithub, SiHuggingface, SiGradio, SiReact } from 'react-icons/si'
 
 const techBadges = [
   {
     label: 'Hugging Face',
-    icon: '/huggingface.svg',
+    icon: SiHuggingface,
     color: 'text-amber-400 bg-amber-400/10 hover:bg-amber-400/20',
   },
   {
     label: 'Gradio',
-    icon: '/gradio.svg',
+    icon: SiGradio,
     color: 'text-purple-400 bg-purple-400/10 hover:bg-purple-400/20',
   },
   {
     label: 'React 19',
-    icon: '/react.svg',
+    icon: SiReact,
     color: 'text-sky-400 bg-sky-400/10 hover:bg-sky-400/20',
   },
 ]
@@ -53,11 +53,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 hover:text-text-primary hover:bg-bg-glass-hover transition-all duration-200 group"
               >
-                <Image
-                  src="/github-mark-white.svg"
-                  alt=""
-                  width={18}
-                  height={18}
+                <SiGithub
+                  size={18}
                   className="opacity-60 group-hover:opacity-100 transition-opacity"
                   aria-hidden="true"
                 />
@@ -70,11 +67,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 hover:text-text-primary hover:bg-bg-glass-hover transition-all duration-200 group"
               >
-                <Image
-                  src="/huggingface.svg"
-                  alt=""
-                  width={18}
-                  height={18}
+                <SiHuggingface
+                  size={18}
                   className="opacity-60 group-hover:opacity-100 transition-opacity"
                   aria-hidden="true"
                 />
@@ -109,7 +103,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-surface-400 hover:text-brand-400 transition-colors group"
                   >
-                    <Github size={14} className="opacity-60 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
+                    <SiGithub size={14} className="opacity-60 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
                     <span>{dev.name}</span>
                   </a>
                   <a
@@ -138,21 +132,18 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
-              {techBadges.map((badge) => (
-                <span
-                  key={badge.label}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${badge.color}`}
-                >
-                  <Image
-                    src={badge.icon}
-                    alt=""
-                    width={14}
-                    height={14}
-                    aria-hidden="true"
-                  />
-                  {badge.label}
-                </span>
-              ))}
+              {techBadges.map((badge) => {
+                const Icon = badge.icon
+                return (
+                  <span
+                    key={badge.label}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${badge.color}`}
+                  >
+                    <Icon size={14} aria-hidden="true" />
+                    {badge.label}
+                  </span>
+                )
+              })}
             </div>
           </div>
         </div>
