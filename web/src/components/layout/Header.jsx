@@ -60,8 +60,8 @@ export default function Header() {
       setScrolled(window.scrollY > 20)
     }
     
-    // Initial check
-    handleScroll()
+    // Don't check on mount to avoid hydration mismatch
+    // Initial state is false, scroll listener will update it
     
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)

@@ -42,7 +42,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} antialiased`} suppressHydrationWarning>
       <body className="flex flex-col relative bg-bg-primary text-text-primary">
         {/* Skip Navigation — Accessibility: allows keyboard users to skip to main content */}
         <a
